@@ -1,0 +1,51 @@
+id: videogen
+name: VideoGen MCP
+description: >
+  Official VideoGen MCP server for creating videos from scripts and storyboards,
+  managing editable projects, generating media, and exporting completed videos.
+  Connect to the hosted server with OAuth or an API key, or run the npm package
+  locally. Setup guide and product website: https://videogen.io/videogen-mcp
+author:
+  name: VideoGen
+  github: video-gen
+repository: https://github.com/video-gen/videogen-mcp
+transport:
+  - stdio
+  - http-streaming
+category: AI
+tags:
+  - ai-video
+  - video-generation
+  - storyboard
+  - media-creation
+created_at: "2026-10-02T07:57:00.000Z"
+updated_at: "2026-10-02T07:57:00.000Z"
+tools:
+  - name: script_to_video
+    description: Create an editable video project and export from a script.
+    input_schema:
+      type: object
+  - name: storyboard_to_video
+    description: Create a video from a shot-by-shot storyboard.
+    input_schema:
+      type: object
+  - name: list_projects
+    description: List VideoGen projects available to the account.
+    input_schema:
+      type: object
+  - name: export_project
+    description: Start an MP4 export of a VideoGen project.
+    input_schema:
+      type: object
+install:
+  npm: "@videogen/mcp"
+  command: npx
+  args:
+    - "-y"
+    - "@videogen/mcp"
+env_vars:
+  - name: VIDEOGEN_API_KEY
+    description: VideoGen API key for the local stdio server.
+    required: true
+license: MIT
+version: "2.2.1"
